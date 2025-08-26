@@ -14,7 +14,7 @@
 #include <string>
 #include <map>
 
-class CSzxRunDll2
+class RunDll
 {
 public: // Public data types
 	enum CallingConventions
@@ -62,13 +62,13 @@ protected: // Protected fields and methods
 	}
 
 public: // Public methods
-	CSzxRunDll2(LPCTSTR lpDllName = nullptr)
+	RunDll(LPCTSTR lpDllName = nullptr)
 		: m_hModule(NULL) {
 		if (lpDllName)
 			m_hModule = LoadLibrary(lpDllName);
 		_InitMap();
 	}
-	virtual ~CSzxRunDll2() {
+	virtual ~RunDll() {
 		UnloadDll();
 	}
 	UINT LoadDll(LPCTSTR lpDllName) {
@@ -180,5 +180,5 @@ public: // Public methods
 	}
 };
 
-const std::string CSzxRunDll2::m_Prefix[3] = { "@@YG","@@YA","@@YI" };
-std::map<std::string, std::string> CSzxRunDll2::m_map;
+const std::string RunDll::m_Prefix[3] = { "@@YG","@@YA","@@YI" };
+std::map<std::string, std::string> RunDll::m_map;

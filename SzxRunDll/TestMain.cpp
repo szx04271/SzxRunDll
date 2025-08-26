@@ -6,5 +6,11 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    RunDll dll(L"user32.dll");
+    auto msgbox_result =
+        dll.CallDllFunc2_stdcall<int>("MessageBoxW", nullptr, L"消息文本", L"消息", MB_ICONWARNING | MB_YESNOCANCEL);
+    std::printf("msgbox result %d\n", msgbox_result);
+    system("pause");
+
+    return 0;
 }
