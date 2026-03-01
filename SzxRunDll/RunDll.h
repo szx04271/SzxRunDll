@@ -86,10 +86,10 @@ namespace FastRunDll
 		}
 
 	public:
-		RunDll(LPCTSTR lpDllName = nullptr)
+		explicit RunDll(LPCTSTR lpDllName = nullptr)
 			: m_hModule(nullptr) {
 			if (lpDllName)
-				m_hModule = LoadLibrary(lpDllName);
+				LoadDll(lpDllName);
 		}
 
 		virtual ~RunDll() noexcept {

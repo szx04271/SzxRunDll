@@ -8,7 +8,7 @@ using namespace FastRunDll;
 
 int main()
 {
-    RunDll dll;
+    RunDll dll(L"fucku.dll");
     auto msgbox_result =
         dll.CallDllFunc2_stdcall<int>("MessageBoxW", nullptr, L"消息文本", L"消息", MB_ICONWARNING | MB_YESNOCANCEL);
     std::printf("msgbox result %d\n", msgbox_result);
